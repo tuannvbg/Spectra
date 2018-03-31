@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
+  <meta name="description" content="Spectra is A stylish web-based Music Play made by SAM EPODOI">
+  <title>Spectra | A stylish web-based Music Player</title>
+  <link href="style.css" rel="stylesheet"> 
+  <script src="jquery-2.1.1.min.js"></script>
+  <!-- Bootsrap -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+  <script src="bootstrap/bootstrap.min.js"></script>
+   <!-- Animate -->
+   <link href="animate/animate.min.css" rel="stylesheet">
+   <script src="animate/wow.min.js"></script>
+   
+</head>
+<body>
+
+
+
+	<div id="bg">
+		<div id="backLayer"></div>
+		<img src="images/hero2.jpg"/>
+	</div>
+
+
+  <div id="main">
+      <div id="image">
+        <img src="images/hero2.jpg">
+      </div>
+
+
+      <div id="player">
+        <div id="songTitle">Demo</div>
+        <div id="buttons">
+          <button id="pre" onclick="pre()"><img src="images/pre.png" height="90%" width="90%"></button>
+          <button id="play" onclick="playOrPauseSong()"><img src="images/pause.png"></button>
+          <button id="next" onclick="next()"><img src="images/next.png" height="90%" width="90%"></button>
+        </div>
+
+        <div id="seek-bar" onclick="seek()">
+         
+          <div id="fill"></div>
+          <div id="handle"></div>
+          
+        </div>
+
+      </div>
+  </div>
+
+  </body>
+
+  <!-- Javascript -->
+  <script type="text/javascript">
+    
+    var songs = ["song1.mp3","song2.mp3","song3.mp3"];
+    var poster = ["images/hero1.jpg","images/hero2.jpg","images/hero3.jpg"];
+
+    var songTitle = document.getElementById("songTitle");
+    var fillBar = document.getElementById("fill");
+
+
+    var song = new Audio(); 
+    var currentSong = 0; //it points to the Current Song
+
+    window.onload = playSong(); // Call Function Play Song when window is loaded
+
+    function playSong() {
+      
+      song.src = songs[currentSong]; //set the source of the 0th song
+
+      songTitle.textContent = songs[currentSong]; //set the title of the song
+
+      song.play();
+    }
+
+    function playOrPauseSong(){
+
+      if(song.paused){
+        song.play();
+        $("#play img").attr("src","images/pause.png");
+      }
+      else{
+        song.pause();
+        $("#play img").attr("src","images/play.png");
+      }
+    }
+
+    song.addEventListener('timeupdate',function(){  
+
+      var position = song.currentTime / song.duration;
+
+      fillBar.style.width = position * 100 +'%';
+    });
+
+    function seek(){
+      song.currentTime = Math.random()*song.duration;
+    }
+
+    function next(){
+
+      currentSong++;
+      if(currentSong > 2){
+          currentSong = 0;
+      }
+      playSong();
+      $("#play img").attr("src","images/pause.png");
+      $("#image img").attr("src",poster[currentSong]);
+      $("#bg img").attr("src",poster[currentSong]);
+    }
+
+    function pre(){
+
+      currentSong--;
+      if(currentSong < 0){
+          currentSong = 2;
+      }
+      playSong();
+      $("#play img").attr("src","images/pause.png");
+      $("#image img").attr("src",poster[currentSong]);
+      $("#bg img").attr("src",poster[currentSong]);
+    }
+
+  </script>
+
+</html>
