@@ -1,6 +1,6 @@
     
-    var songs = ["songs/song1.mp3","songs/song2.mp3","songs/song3.mp3"];
-    var poster = ["images/hero1.jpg","images/hero2.jpg","images/hero3.jpg"];
+    var songs = ["songs/song1.mp3","songs/song2.mp3","songs/song3.mp3","songs/song4.mp3","songs/song5.mp3","songs/song6.mp3","songs/song7.mp3","songs/song8.mp3","songs/song9.mp3","songs/song10.mp3","songs/song11.mp3","songs/song12.mp3"];
+    var poster = ["images/hero1.jpg","images/hero2.jpg","images/hero3.jpg","images/hero4.jpg","images/hero5.jpg","images/m1.jpg","images/m2.png","images/m3.jpg"];
 
     var songTitle = document.getElementById("songTitle");
     var fillBar = document.getElementById("fill");
@@ -36,7 +36,7 @@
 
       var position = song.currentTime / song.duration;
 
-      fillBar.style.width = position * 100 +'%';
+      fillBar.style.width = position * 90 +'%';
     });
 
     function seek(){
@@ -46,7 +46,7 @@
     function next(){
 
       currentSong++;
-      if(currentSong > 2){
+      if(currentSong > 12){
           currentSong = 0;
       }
       playSong();

@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
   <script src="bootstrap/bootstrap.min.js"></script>
    <!-- Animate -->
-   <link rel="stylesheet" href="animate/animate.min.css" >
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
    
    
 </head>
@@ -28,7 +29,7 @@
 	</div>
 
 
-  <div id="main" class="wow bounce">
+  <div id="main">
       <center><div id="image">
         <img src="images/hero1.jpg">
       </div></center>
@@ -37,7 +38,7 @@
       <div id="player">
         <div id="songTitle">Demo</div>
 
-        <div id="buttons">
+        <div id="buttons" class="wow bounce">
           <button id="pre" onclick="pre()"><img src="images/pre.png" height="90%" width="90%"></button>
           <button id="play" onclick="playOrPauseSong()"><img src="images/pause.png"></button>
           <button id="next" onclick="next()"><img src="images/next.png" height="90%" width="90%"></button>
@@ -64,6 +65,5 @@
 
   <!-- Javascript -->
   <script src="player.js"></script>
-  <script src="animate/wow.min.js"></script>
 
 </html>
