@@ -1,2 +1,2 @@
 # Spectra
-A stylish web-based music player
+An awesome javascript music player
